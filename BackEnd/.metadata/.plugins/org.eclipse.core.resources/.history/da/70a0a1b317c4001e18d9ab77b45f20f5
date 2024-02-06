@@ -1,0 +1,21 @@
+package com.crud.ApiGateway.config;
+
+//ApiGatewayConfig.java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
+
+@Configuration
+public class ApiGatewayConfig {
+
+ @Bean
+ public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+     return builder.routes()
+         .route("create", r -> r.path("/api/create/**").uri("http://localhost:9090"))
+         .route("viewall", r -> r.path("/api/viewall/**").uri("http://localhost:9191"))
+         // Add routes for update and delete as needed
+         .build();
+ }
+}
+

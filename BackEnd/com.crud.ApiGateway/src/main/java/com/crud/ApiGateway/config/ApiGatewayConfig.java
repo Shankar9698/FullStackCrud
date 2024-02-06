@@ -1,0 +1,26 @@
+package com.crud.ApiGateway.config;
+
+//ApiGatewayConfig.java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
+
+@Configuration
+@CrossOrigin
+public class ApiGatewayConfig {
+
+ @Bean
+ public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+     return builder.routes()
+         .route("create", r -> r.path("/studentsc/create").uri("http://localhost:9090"))
+         .route("viewall", r -> r.path("/students/viewall").uri("http://localhost:9191"))
+         .route("update", r -> r.path("/studentsu/**").uri("http://localhost:9393"))
+         .route("viewById", r -> r.path("/students/**").uri("http://localhost:9292"))
+         .route("delete", r -> r.path("/studentsd/**").uri("http://localhost:9494"))
+         
+         .build();
+ }
+}
+

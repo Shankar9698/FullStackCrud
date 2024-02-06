@@ -1,0 +1,5 @@
+package com.crud.delete.config;
+
+public class WebConfig {
+
+}

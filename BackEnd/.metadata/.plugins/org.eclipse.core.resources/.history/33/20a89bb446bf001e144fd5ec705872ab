@@ -1,0 +1,22 @@
+server.port=9191
+spring.application.name=STUDENT-VIEWALL
+
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/student_management_system
+spring.datasource.username=root
+spring.datasource.password=root
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.hibernate.ddl-auto=update
+
+spring.config.import.optional.configserver=http://localhost:9696
+
+#eureka.instance.prefer-ip-address=true
+#eureka.client.fetch-registry=true
+#eureka.client.register-with-eureka=true
+#eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+
+# application.properties
+
+logging.file.name=mylog.log
+logging.level.root=DEBUG
+
